@@ -1,5 +1,6 @@
 import 'package:cb_app/services/authentication_service.dart';
 import 'package:cb_app/services/dialog_service.dart';
+import 'package:cb_app/services/dynamic_link_services.dart';
 import 'package:cb_app/services/firestore_service.dart';
 import 'package:cb_app/services/localnotification_service.dart';
 import 'package:cb_app/services/pushnotify_service.dart';
@@ -15,4 +16,5 @@ void setupLocator(){
   locator.registerLazySingleton(() => FireStoreService());
   locator.registerLazySingleton(() => PushNotificationService());
   locator.registerLazySingleton(() => LocalNotificationService());
+  locator.registerLazySingleton(() => DynamicLinkService());
 }

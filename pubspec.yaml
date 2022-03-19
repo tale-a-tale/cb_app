@@ -56,6 +56,9 @@ dependencies:
   firebase_auth: ^3.3.10
   cloud_firestore: ^3.1.10
   firebase_messaging: ^11.1.0
+  firebase_dynamic_links: ^4.1.1
+
+  #local notification
   flutter_local_notifications: ^9.4.0
 
 dev_dependencies:

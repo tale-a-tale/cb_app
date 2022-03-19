@@ -21,7 +21,7 @@ class FireStoreService{
     try {
       await _usersCollectionReference.doc(user.id).set(user.toJson());
     } catch (e) {
-      return e.message;
+      return e;
     }
   }
   //This method is too create a user from firestore
@@ -30,7 +30,7 @@ class FireStoreService{
       var userData = await _usersCollectionReference.doc(uid).get();
       return AppUser.fromData(userData.data());
     } catch (e) {
-      return e.message;
+      return e;
     }
   }
 
@@ -42,7 +42,7 @@ class FireStoreService{
         return e.message;
       }
 
-      return e.toString();
+      return e;
     }
   }
 

@@ -26,11 +26,19 @@ Route<dynamic> generateRoute(RouteSettings settings) {
         viewToShow: HomeView(),
       );
     case CreatePostViewRoute:
-      var postToEdit = settings.arguments as Post;
+      String postTitle;
+      Post postToEdit;
+
+      if(settings.arguments is String){
+        postTitle = settings.arguments;
+      } else if(settings.arguments is Post){
+        postToEdit = settings.arguments;
+      }
       return _getPageRoute(
         routeName: settings.name,
         viewToShow: CreatePostView(
           edittingPost: postToEdit,
+          postTitle: postTitle,
         ),
       );
     default:

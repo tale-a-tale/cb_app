@@ -13,18 +13,25 @@ class CreatePostView extends StatelessWidget {
   final descriptionController = TextEditingController();
 
   final Post edittingPost;
-  CreatePostView({Key key, this.edittingPost}) : super(key: key);
+  final String postTitle;
+
+  CreatePostView({Key key, this.edittingPost, this.postTitle}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<CreatePostViewModel>.reactive(
       viewModelBuilder: () => CreatePostViewModel(),
       onModelReady: (model) {
-        // update the text in the controller
-        titleController.text = edittingPost?.title ?? '';
-        descriptionController.text = edittingPost?.description ?? '';
 
-        model.setEdittingPost(edittingPost);
+        if(edittingPost != null){
+          // update the text in the controller
+          titleController.text = edittingPost?.title ?? '';
+          descriptionController.text = edittingPost?.description ?? '';
+          model.setEdittingPost(edittingPost);
+        } else if (postTitle != null){
+          print("Title Controller $postTitle");
+          titleController.text = postTitle;
+        }
       },
       builder: (context, model, child) => Scaffold(
           floatingActionButton: FloatingActionButton(
