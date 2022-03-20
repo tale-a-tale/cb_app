@@ -32,7 +32,7 @@ class DynamicLinkService{
       if(isPost){
         var title =  deepLink.queryParameters['title'];
         if(title != null){
-          //Navigate to create post scree
+          //Navigate to create post screen
           _navigationService.navigateTo(CreatePostViewRoute,arguments: title);
         }
       }
