@@ -28,7 +28,6 @@ class DynamicLinkService{
     if(deepLink != null){
       print("_handleDeepLink | dynamicLink - $deepLink");
       var  isPost = deepLink.pathSegments.contains('post');
-      print("IsPost $isPost");
       if(isPost){
         var title =  deepLink.queryParameters['title'];
         if(title != null){
